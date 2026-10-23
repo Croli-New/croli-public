@@ -1,0 +1,20 @@
+# `blank_issues_enabled` stays true on purpose.
+#
+# The app's own "Send Feedback" entry points (Help ▸ Send Feedback, and
+# Settings ▸ System) open `/issues/new?body=…` with the report scaffold, the
+# app version and the platform already filled in. With blank issues disabled,
+# GitHub redirects `/issues/new` to this chooser, which would drop that
+# prefill — and with it the environment lines a maintainer would otherwise have
+# to ask for. The templates below still get the structured form for anyone who
+# arrives through the chooser or a direct `?template=` link.
+blank_issues_enabled: true
+contact_links:
+  - name: Download Croli
+    url: https://www.croli.net/download/
+    about: Get the latest build for macOS, Windows, or Linux.
+  - name: Documentation
+    url: https://www.croli.net/resources/
+    about: Background reading on agents, MCP, skills, and workflows.
+  - name: Contact the team
+    url: https://www.croli.net/contact/
+    about: Product questions, early access, partnerships, or a private message.

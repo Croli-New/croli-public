@@ -1,0 +1,112 @@
+name: Bug report
+description: Something is broken or behaves unexpectedly.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. Croli sits in front of many
+        different agent CLIs, so **naming the agent involved** is the single
+        most useful thing you can do — it is usually what makes a report
+        reproducible.
+
+        Please search the [existing issues](https://github.com/Croli-New/croli-public/issues)
+        first, and prefer adding to an existing report over opening a duplicate.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+      placeholder: |
+        I expected … but instead …
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The shortest sequence that shows the problem. Number them.
+      placeholder: |
+        1. Open …
+        2. Send …
+        3. See …
+    validations:
+      required: true
+
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Which agent was involved?
+      description: Pick the agent whose session showed the problem, or the closest one.
+      options:
+        - Not agent-specific / the app itself
+        - Claude Code
+        - Codex
+        - Gemini CLI
+        - OpenCode
+        - OpenClaw
+        - Cline
+        - Other / a custom ACP agent
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: Croli version
+      description: Shown in Settings ▸ System, or in the About panel.
+      placeholder: "0.0.7"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - macOS (Apple silicon)
+        - macOS (Intel)
+        - Windows
+        - Linux
+        - Server / Docker (browser)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install
+    attributes:
+      label: How are you running Croli?
+      options:
+        - Desktop app
+        - Standalone server (`croli-server`)
+        - Docker
+        - Development build
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: |
+        Optional, but often decisive. Logs live under **Help ▸ Open Logs**
+        (macOS) or the runtime-logs location in **Settings**.
+
+        ⚠️ Please skim them before attaching — they can contain file paths and
+        prompt text you may not want to publish.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the existing issues and did not find this already reported.
+          required: true
+        - label: I removed anything private (tokens, keys, personal paths) from what I attached.
+          required: true
